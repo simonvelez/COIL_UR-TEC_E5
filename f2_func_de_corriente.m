@@ -6,13 +6,13 @@
 %} 
 
 % Parámetros
-U = 1;     % Velocidad del flujo
-R = 1;     % Radio del cilindro
+U = 0.01;     % Velocidad del flujo (m/s)
+R = 32;     % Radio del cilindro (m)
 N = 200;   % Resolución de la malla
 
 % Malla
-x = linspace(-3, 3, N);   % Rangos para x y y
-y = linspace(-3, 3, N);
+x = linspace(-100, 100, N);   % Rangos para x y y
+y = linspace(-100, 100, N);
 [X, Y] = meshgrid(x, y);
 Z = X + 1i * Y;           % Variable compleja
 
@@ -26,7 +26,7 @@ fcom = U * (Z + R^2 ./ Z);
 fcor = imag(fcom);
 
 % Número de niveles y límites deseados
-niveles = linspace(-3, 3, 40);  % 25 líneas entre -2.5 y 2.5
+niveles = linspace(-5, 5, 100);  % rango y cuántas líneas
 % Graficar las líneas de corriente
 figure;
 contour(X, Y, fcor, niveles, 'LineWidth', 1);
@@ -41,6 +41,6 @@ yc = R * sin(theta);
 fill(xc, yc, 'k');    
 
 axis equal;    % Ejes con la misma escala
-xlabel('x');
-ylabel('y');
+xlabel('x (m)');
+ylabel('y (m)');
 title('Líneas de Corriente (Im(f))');
