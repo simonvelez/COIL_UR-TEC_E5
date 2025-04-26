@@ -6,7 +6,7 @@
 %} 
 
 % Parámetros
-U = 0.01;     % Velocidad del flujo (m/s)
+U = 0.296;     % Velocidad del flujo (m/s)
 R = 32;     % Radio del cilindro (m)
 N = 200;   % Resolución de la malla
 
@@ -26,7 +26,7 @@ fcom = U * (Z + R^2 ./ Z);
 fcor = imag(fcom);
 
 % Número de niveles y límites deseados
-niveles = linspace(-5, 5, 100);  % rango y cuántas líneas
+niveles = linspace(-5, 5, 20);  % rango y cuántas líneas
 % Graficar las líneas de corriente
 figure;
 contour(X, Y, fcor, niveles, 'LineWidth', 1);
